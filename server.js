@@ -7,11 +7,12 @@ app.listen(8080, () => {
     console.log('http://localhost:8080 에서 서버 실행중')
 })
 
-// 누가 메인페이지에 접속시, '반갑다'라는 문장 보내기
+// user에게 html파일을 보여주기
+// __dirname은 server.js가 담긴 폴더 (절대 경로)
 app.get('/', (요청, 응답) => {
-  응답.send('반갑다')
+  응답.sendFile(__dirname + '/index.html')
 }) 
 
-app.get('/news', (요청, 응답) => {
-    응답.send('오늘 비옴')
-  }) 
+app.get('/about', (요청, 응답) => {
+    응답.sendFile(__dirname + '/introduce.html');
+}) 
